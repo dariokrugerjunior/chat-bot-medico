@@ -61,3 +61,6 @@ O frontend usa proxy do Vite para encaminhar chamadas `/api` para `http://localh
 
 ## Licenca
 Uso interno.
+## Deploy em servidor gratuito
+- Veja o guia completo: `DEPLOY_ORACLE_FREE.md`
+
