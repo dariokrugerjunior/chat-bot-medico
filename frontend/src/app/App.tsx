@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 import { ChatMessage, Message } from './components/ChatMessage';
 import { ChatInput } from './components/ChatInput';
 import { Bot, Sparkles } from 'lucide-react';
 
 const INITIAL_BOT_MESSAGE = 'Olá! Qual especialidade ou serviço você procura?';
 const FINAL_BOT_MESSAGE =
-  'Obrigada pelas informaçôes. Nossa equipe entrar em contato para dar continuidade ao atendimento.';
+  'Obrigada pelas informações. Nossa equipe entrará em contato para dar continuidade ao atendimento.';
 
 export default function App() {
   const [messages, setMessages] = useState<Message[]>([
@@ -96,32 +96,32 @@ export default function App() {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-gray-50">
-      <div className="sticky top-0 z-10 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-4 shadow-md">
+    <div className="h-screen flex flex-col bg-[#ECE5DD]">
+      <div className="sticky top-0 z-10 bg-[#075E54] text-white px-4 py-3 shadow-md">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+          <div className="w-10 h-10 bg-white/15 rounded-full flex items-center justify-center">
             <Bot className="w-6 h-6" />
           </div>
-          <div>
-            <h1 className="font-semibold">Assistente Virtual</h1>
-            <p className="text-sm text-blue-100">Online</p>
+          <div className="flex-1">
+            <h1 className="font-semibold leading-tight">Clínica COF</h1>
+            <p className="text-xs text-emerald-100">online</p>
           </div>
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-4 py-6">
-        <div className="max-w-4xl mx-auto space-y-6">
+      <div className="flex-1 overflow-y-auto px-3 py-4">
+        <div className="max-w-3xl mx-auto space-y-3">
           {messages.map((message) => (
             <ChatMessage key={message.id} message={message} />
           ))}
 
           {isTyping && (
-            <div className="flex gap-3">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
+            <div className="flex gap-2 items-end">
+              <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#075E54] flex items-center justify-center">
                 <Bot className="w-5 h-5 text-white" />
               </div>
-              <div className="bg-gray-100 px-4 py-3 rounded-2xl rounded-tl-sm">
-                <div className="flex gap-1">
+              <div className="bg-white text-gray-800 px-3 py-2 rounded-2xl rounded-tl-sm shadow-sm">
+                <div className="flex gap-1 items-center">
                   <div
                     className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
                     style={{ animationDelay: '0ms' }}
@@ -143,18 +143,18 @@ export default function App() {
         </div>
       </div>
 
-      <div className="sticky bottom-0 z-10 bg-white border-t border-gray-200">
+      <div className="sticky bottom-0 z-10 bg-[#F0F0F0] border-t border-black/10">
         <ChatInput
           onSendMessage={handleSendMessage}
           disabled={isTyping || isClosed}
           placeholder={isClosed ? 'Conversa encerrada.' : 'Digite sua mensagem...'}
         />
         <div className="px-4 py-2 text-center space-y-1">
-          <p className="text-xs text-gray-400 flex items-center justify-center gap-1">
+          <p className="text-[11px] text-gray-500 flex items-center justify-center gap-1">
             <Sparkles className="w-3 h-3" />
             Powered by AI
           </p>
-          <p className="text-xs text-gray-500">Desenvolvido por Dario Kruger Junior</p>
+          <p className="text-[11px] text-gray-500">Desenvolvido por Dario Kruger Junior</p>
         </div>
       </div>
     </div>
