@@ -96,8 +96,8 @@ export default function App() {
   };
 
   return (
-    <div className="size-full flex flex-col bg-gray-50">
-      <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-4 shadow-md">
+    <div className="h-screen flex flex-col bg-gray-50">
+      <div className="sticky top-0 z-10 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-4 shadow-md">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
             <Bot className="w-6 h-6" />
@@ -143,20 +143,19 @@ export default function App() {
         </div>
       </div>
 
-      <ChatInput
-        onSendMessage={handleSendMessage}
-        disabled={isTyping || isClosed}
-        placeholder={isClosed ? 'Conversa encerrada.' : 'Digite sua mensagem...'}
-      />
-
-      <div className="bg-white border-t border-gray-200 px-4 py-2 text-center">
-        <p className="text-xs text-gray-400 flex items-center justify-center gap-1">
-          <Sparkles className="w-3 h-3" />
-          Powered by AI
-        </p>
-      </div>
-      <div className="bg-white border-t border-gray-200 px-4 py-2 text-center">
-        <p className="text-xs text-gray-500">Desenvolvido por Dario Kruger Junior</p>
+      <div className="sticky bottom-0 z-10 bg-white border-t border-gray-200">
+        <ChatInput
+          onSendMessage={handleSendMessage}
+          disabled={isTyping || isClosed}
+          placeholder={isClosed ? 'Conversa encerrada.' : 'Digite sua mensagem...'}
+        />
+        <div className="px-4 py-2 text-center space-y-1">
+          <p className="text-xs text-gray-400 flex items-center justify-center gap-1">
+            <Sparkles className="w-3 h-3" />
+            Powered by AI
+          </p>
+          <p className="text-xs text-gray-500">Desenvolvido por Dario Kruger Junior</p>
+        </div>
       </div>
     </div>
   );
